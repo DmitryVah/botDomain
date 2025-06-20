@@ -1,4 +1,11 @@
 <?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+echo "Запуск проверки доменов<br>";
+
+
 require_once './Models/CheckerModel.php';
 require_once './Controllers/TelegramController.php';
 
@@ -41,4 +48,13 @@ class CheckDomain extends Bot
     }
 
 
+}
+
+$pdo = new PDO(...);  // как у тебя в коде
+$stmt = $pdo->query("SELECT domain_name FROM domains");
+$domains = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+echo "Доступные домены: <br>";
+foreach ($domains as $domain) {
+    echo htmlspecialchars($domain) . "<br>";
 }
