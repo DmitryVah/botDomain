@@ -198,8 +198,3 @@ class Bot
 //        return $responses;
     }
 }
-
-{
-$domains = User::getAllDomains($this->user_id);
-error_log("Пользователь {$this->user_id} домены: " . print_r($domains, true));
-}
