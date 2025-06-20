@@ -22,7 +22,8 @@ class Route
             include "./Controllers/CheckerController.php";
             $checker = new CheckDomain();
         } else {
-            Route::ErrorPage404();
+            $route = new Route();
+            $route->ErrorPage404();
         }
 
         die();
